@@ -12,12 +12,7 @@ const app = express();
   try {
     await client.login()
   } catch (err) {
-    const challengeUrl = err.error.checkpoint_url
-    try { 
-      await client.updateChallenge({ challengeUrl, choice: 1 })
-     } catch (e) {
-      console.log(e)
-    }
+   //
   }
 })()
 
