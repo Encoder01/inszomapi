@@ -7,14 +7,21 @@ const getUserRouter = require('./Routes/getUser.routes')
 
 const app = express();
 
-
 ; (async () => {
   try {
     await client.login()
   } catch (err) {
-   //
+    console.log(err.error.message)
+    console.log(err.error)
+    const challengeUrl = err.error.checkpoint_url
+    try { 
+      await client.updateChallenge({ challengeUrl, choice: 1 })
+     } catch (e) {
+      console.log(e)
+    }
   }
 })()
+
 
 
 
