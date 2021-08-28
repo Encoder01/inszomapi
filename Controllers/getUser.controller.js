@@ -35,7 +35,7 @@ exports.getUser = async (req, res) => {
     } catch (err) {
       res.json({
         error: err.message,
-        errorCode: "403"
+        errorCode: err
       })
       res.status(403)
     }
@@ -44,4 +44,21 @@ exports.getUser = async (req, res) => {
   }
 
 };
-
+/*
+{
+  bio: responseData.biography,
+    follower: responseData.follower_count,
+      following: responseData.following_count,
+        fullName: responseData.full_name,
+          userName: responseData.username,
+            id: responseData.pk,
+              mediaCount: responseData.media_count,
+                private: responseData.is_private,
+                  versions: responseData.hd_profile_pic_versions,
+                    images:
+  {
+    low: responseData.profile_pic_url,
+      sd: responseData.hd_profile_pic_versions ? responseData.hd_profile_pic_versions[0].url : responseData.profile_pic_url,
+        hd: responseData.hd_profile_pic_url_info.url
+  }
+}*/
